@@ -12,11 +12,13 @@
           type="email"
           name="email"
           ngModel
+          [ngModelOptions]="{ updateOn: 'blur' }"
           required
           email
           minlength="3"
           maxlength="20"
           #email="ngModel"
+          (ngModelChange)="onEmailChange($event)"
           placeholder="Email"
         />
         <mat-error *ngIf="email.errors?.required">
@@ -53,6 +55,6 @@
         Login
       </button>
     </form>
-    <div class="form-val">{{ email.errors | json }}</div>
+    <div class="form-val">{{ email.value | json }}</div>
   </mat-card-content>
 </mat-card>
