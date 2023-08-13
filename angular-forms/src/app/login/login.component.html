@@ -46,10 +46,16 @@
           [(ngModel)]="val.password"
           required
           passwordStrength
+          minlength="8"
           placeholder="Password"
         />
         <mat-error *ngIf="password.errors?.required">
           The password is mandatory.
+        </mat-error>
+        <mat-error *ngIf="password.errors?.minlength">
+          Your password must have
+          {{ password.errors?.minlength.requiredLength }} chars, but it only has
+          {{ password.errors?.minlength.actualLength }}.
         </mat-error>
         <mat-error *ngIf="password.errors?.passwordStrength">
           Your password must have lower case, upper case and numeric characters.
@@ -65,6 +71,6 @@
         Login
       </button>
     </form>
-    <div class="form-val">{{ loginForm.value | json }}</div>
+    <div class="form-val">{{ password.errors | json }}</div>
   </mat-card-content>
 </mat-card>
