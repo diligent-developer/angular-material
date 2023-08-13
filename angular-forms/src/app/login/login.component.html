@@ -10,11 +10,11 @@
         <input
           matInput
           type="email"
-          ngModel
+          [(ngModel)]="val.email"
           [ngModelOptions]="{
             updateOn: 'change',
             name: 'Email',
-            standalone: true
+            standalone: false
           }"
           required
           email
@@ -43,7 +43,7 @@
           type="password"
           name="password"
           #password="ngModel"
-          ngModel
+          [(ngModel)]="val.password"
           required
           placeholder="Password"
         />
