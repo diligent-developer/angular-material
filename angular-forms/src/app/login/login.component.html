@@ -10,9 +10,12 @@
         <input
           matInput
           type="email"
-          name="email"
           ngModel
-          [ngModelOptions]="{ updateOn: 'blur' }"
+          [ngModelOptions]="{
+            updateOn: 'change',
+            name: 'Email',
+            standalone: true
+          }"
           required
           email
           minlength="3"
@@ -55,6 +58,6 @@
         Login
       </button>
     </form>
-    <div class="form-val">{{ email.value | json }}</div>
+    <div class="form-val">{{ loginForm.value | json }}</div>
   </mat-card-content>
 </mat-card>
