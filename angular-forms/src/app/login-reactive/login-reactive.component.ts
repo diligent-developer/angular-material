@@ -37,4 +37,9 @@ export class LoginReactiveComponent implements OnInit {
   get password() {
     return this.form.controls['password'];
   }
+
+  login() {
+    const formValue = this.form.value;
+    this.form.patchValue({});
+  }
 }
