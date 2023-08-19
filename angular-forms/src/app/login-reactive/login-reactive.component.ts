@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  NonNullableFormBuilder,
+  Validators,
+} from '@angular/forms';
 import { createPasswordStrengthValidator } from '../validators/password-strength.validator';
 
 @Component({
@@ -26,7 +30,7 @@ export class LoginReactiveComponent implements OnInit {
     ],
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: NonNullableFormBuilder) {}
 
   ngOnInit() {}
 
@@ -41,5 +45,10 @@ export class LoginReactiveComponent implements OnInit {
   login() {
     const formValue = this.form.value;
     this.form.patchValue({});
+  }
+
+  reset() {
+    this.form.reset();
+    console.log(this.form.value);
   }
 }

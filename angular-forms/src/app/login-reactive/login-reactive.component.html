@@ -49,11 +49,15 @@
           Your password must have lower case, upper case and numeric characters.
         </div>
       </ng-container>
-      <button mat-raised-button color="primary" [disabled]="!form.valid"
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="!form.valid"
         (click)="login()"
       >
         Login
       </button>
+      <button mat-raised-button (click)="reset()">reset</button>
     </form>
     <div class="form-val">
       {{ form.value | json }}
